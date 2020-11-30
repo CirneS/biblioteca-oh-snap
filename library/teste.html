@@ -1,0 +1,44 @@
+<html>
+    <head>
+    <meta charset=utf-8>
+    <title>Oh Snap!</title>
+
+    <link rel="stylesheet" href="css/style.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="js/ohsnap.js"></script>
+    <div id="ohsnap"></div>
+
+        <script>
+            
+            function validarEmail()
+            {
+                email = document.body.querySelector("#email").value;
+                var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+                if(email.match(mailformat))
+                {
+                    $(function(){
+                    ohSnap('Email válido', {color: 'green'});});
+                    return true;
+                }
+                else{
+                    ohSnap('Email inválido', {color: 'red'});
+                    document.form1.text1.focus();
+                    return false;
+                }
+            }
+
+        </script>
+    
+    </head>
+
+    <body>
+        <h2>Entre com um email</h2>
+        <form name="form1" action="#">
+        <li><input type='text' id='email'/></li>
+        &nbsp;
+        <li><input type="submit" value="Enviar" onclick="validarEmail()"/></li>
+        </form>
+
+    </body>
+</html>
